@@ -1,4 +1,4 @@
-const path = await Deno.realPath(Deno.args[0] ?? "theme.json");
+const path = await Deno.realPath(Deno.args[0] ?? "themewatch.json");
 
 async function print() {
   await Deno.copy(
