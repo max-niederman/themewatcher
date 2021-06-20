@@ -1,0 +1,7 @@
+{
+  "name": "themewatcher",
+  "description": "Themewatcher native file watcher.",
+  "path": "__BINARY_PATH",
+  "type": "stdio",
+  "allowed_extensions": ["themewatcher@extensions.maxniederman.com"]
+}

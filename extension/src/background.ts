@@ -1,0 +1,3 @@
+function watch(path: string) {
+  
+}
