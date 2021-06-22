@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+
     "strict": true,
     "noImplicitReturns": true,
 

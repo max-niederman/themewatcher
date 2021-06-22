@@ -13,6 +13,7 @@
   },
 
   "background": {
+    "persistent": true,
     "scripts": ["dist/background.js"]
   },
   "content_scripts": [
@@ -22,5 +23,5 @@
     }
   ],
 
-  "permissions": ["theme", "nativeMessaging"]
+  "permissions": ["nativeMessaging", "storage", "theme"]
 }

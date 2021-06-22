@@ -1,7 +1,7 @@
 {
   "name": "themewatcher",
-  "description": "Themewatcher native file watcher.",
-  "path": "__BINARY_PATH",
+  "description": "Native messenger for the Themewatcher Firefox extension.",
+  "path": "_BINARY_PATH",
   "type": "stdio",
   "allowed_extensions": ["themewatcher@extensions.maxniederman.com"]
 }

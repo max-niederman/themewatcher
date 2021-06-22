@@ -1,7 +1,7 @@
 declare namespace browser {
   namespace runtime {
-    var id: string;
-    var lastError: Error | null;
+    let id: string;
+    let lastError: Error | null;
 
     interface Port {
       name: string;
@@ -20,8 +20,38 @@ declare namespace browser {
     ): Port;
     function connectNative(name: string): Port;
 
-    var onConnect: Listenable<(port: Port) => any>;
-    var onConnectExternal: Listenable<(port: Port) => any>;
+    let onConnect: Listenable<(port: Port) => any>;
+    let onConnectExternal: Listenable<(port: Port) => any>;
+  }
+
+  namespace storage {
+    type StorageKeys = null | string | string[];
+    type StorageValue = unknown;
+
+    interface StorageArea {
+      get(keys: StorageKeys | Record<string, StorageValue>): Promise<Record<string, StorageValue>>;
+      getBytesInUse(keys: StorageKeys): Promise<number>;
+      set(keys: Record<string, StorageValue>): Promise<void>;
+      remove(keys: string | string[]): Promise<void>;
+      clear(): Promise<void>;
+    }
+
+    interface StorageChange {
+      oldValue?: StorageValue;
+      newValue?: StorageValue;
+    }
+
+    const enum StorageAreas {
+      Sync = "sync",
+      Local = "local",
+      Managed = "managed",
+    }
+
+    let sync: StorageArea;
+    let local: StorageArea;
+    let managed: StorageArea;
+
+    let onChanged: Listenable<(changes: Record<string, StorageChange>, areaName: StorageAreas) => any>;
   }
 
   namespace theme {
@@ -31,7 +61,7 @@ declare namespace browser {
     function update(theme: Theme, windowId?: number): void;
     function reset(windowId?: number): void;
 
-    var onUpdated: Listenable<(updateInfo: { theme: Theme, windowId?: number }) => any>;
+    let onUpdated: Listenable<(updateInfo: { theme: Theme, windowId?: number }) => any>;
   }
 }
 
