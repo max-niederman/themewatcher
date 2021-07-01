@@ -23,5 +23,10 @@
     }
   ],
 
+  "options_ui": {
+    "page": "static/settings.html",
+    "open_in_tab": true
+  },
+
   "permissions": ["nativeMessaging", "storage", "theme"]
 }

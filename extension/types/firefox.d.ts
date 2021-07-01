@@ -29,7 +29,9 @@ declare namespace browser {
     type StorageValue = unknown;
 
     interface StorageArea {
-      get(keys: StorageKeys | Record<string, StorageValue>): Promise<Record<string, StorageValue>>;
+      get(
+        keys: StorageKeys | Record<string, StorageValue>
+      ): Promise<Record<string, StorageValue>>;
       getBytesInUse(keys: StorageKeys): Promise<number>;
       set(keys: Record<string, StorageValue>): Promise<void>;
       remove(keys: string | string[]): Promise<void>;
@@ -51,7 +53,9 @@ declare namespace browser {
     let local: StorageArea;
     let managed: StorageArea;
 
-    let onChanged: Listenable<(changes: Record<string, StorageChange>, areaName: StorageAreas) => any>;
+    let onChanged: Listenable<
+      (changes: Record<string, StorageChange>, areaName: StorageAreas) => any
+    >;
   }
 
   namespace theme {
@@ -61,7 +65,9 @@ declare namespace browser {
     function update(theme: Theme, windowId?: number): void;
     function reset(windowId?: number): void;
 
-    let onUpdated: Listenable<(updateInfo: { theme: Theme, windowId?: number }) => any>;
+    let onUpdated: Listenable<
+      (updateInfo: { theme: Theme; windowId?: number }) => any
+    >;
   }
 }
 

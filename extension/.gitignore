@@ -4,3 +4,6 @@
 # Node
 /node_modules/
 yarn-error.log
+
+# Web-Ext
+/web-ext-artifacts/
